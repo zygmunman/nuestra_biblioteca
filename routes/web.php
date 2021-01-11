@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\PermisoController;
-use App\Http\Controllers\InicioController;
+//use App\Http\Controllers\PermisoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\Admin\PermisoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,9 @@ Route::get('permiso/{nombre}', function($nombre){
 */
 
 Route::get('/', [InicioController::class, 'index']);
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
+    Route::get('permiso', [PermisoController::class, 'index'])->name('permiso');
+    Route::get('permiso/crear', [PermisoController::class, 'crear'])->name('crear_permiso');
+
+});

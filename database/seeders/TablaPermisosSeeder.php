@@ -15,8 +15,6 @@ class TablaPermisosSeeder extends Seeder
      */
     public function run()
     {
-        Permiso::factory()
-        ->times(50)
-        ->create();
+
     }
 }
