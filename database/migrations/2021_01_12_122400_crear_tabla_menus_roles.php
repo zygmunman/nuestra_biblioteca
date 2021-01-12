@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaPermisosRoles extends Migration
+class CrearTablaMenusRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CrearTablaPermisosRoles extends Migration
      */
     public function up()
     {
-        Schema::create('permisos_roles', function (Blueprint $table) {
+        Schema::create('menus_roles', function (Blueprint $table) {
+            $table->unsignedBigInteger('menus_id');
+            $table->foreign('menus_id', 'fk_menusroles_menus')->references('id')->on('menus')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('roles_id');
-            $table->foreign('roles_id', 'fk_permisosroles_roles')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('permisos_id');
-            $table->foreign('permisos_id', 'fk_permisosroles_permisos')->references('id')->on('permisos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('roles_id', 'fk_menusroles_roles')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
@@ -31,6 +31,6 @@ class CrearTablaPermisosRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permisos_roles');
+        Schema::dropIfExists('menus_roles');
     }
 }
