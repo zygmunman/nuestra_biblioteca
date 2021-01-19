@@ -14,10 +14,10 @@ class CrearTablaMenusRoles extends Migration
     public function up()
     {
         Schema::create('menus_roles', function (Blueprint $table) {
-            $table->unsignedBigInteger('menus_id');
-            $table->foreign('menus_id', 'fk_menusroles_menus')->references('id')->on('menus')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('roles_id');
-            $table->foreign('roles_id', 'fk_menusroles_roles')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('menu_id');
+            $table->foreign('menu_id', 'fk_menusroles_menus')->references('id')->on('menus')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('rol_id');
+            $table->foreign('rol_id', 'fk_menusroles_roles')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
@@ -31,6 +31,12 @@ class CrearTablaMenusRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus_roles');
+        //Schema::dropIfExists('menus_roles');
+
+        Schema::drop('menus_roles');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::drop('menu_id');
+        Schema::drop('rol_id');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

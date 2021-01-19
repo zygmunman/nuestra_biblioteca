@@ -15,7 +15,7 @@ class CrearTablaMenus extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('menus_id')->default(0);
+            $table->unsignedInteger('menu_id')->default(0);
             $table->string('nombre', 50);
             $table->string('url', 100);
             $table->unsignedInteger('orden')->default(0);
@@ -33,6 +33,11 @@ class CrearTablaMenus extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        //Schema::dropIfExists('menus');
+
+        Schema::drop('menus');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::drop('menu_id');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

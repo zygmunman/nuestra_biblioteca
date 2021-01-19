@@ -15,10 +15,10 @@ class CrearTablaLibrosMaterias extends Migration
     {
         Schema::create('libros_materias', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('libros_id');
-            $table->foreign('libros_id', 'fk_librosmaterias_libros')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('materias_id');
-            $table->foreign('materias_id', 'fk_librosmaterias_materias')->references('id')->on('materias')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('libro_id');
+            $table->foreign('libro_id', 'fk_librosmaterias_libros')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('materia_id');
+            $table->foreign('materia_id', 'fk_librosmaterias_materias')->references('id')->on('materias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';

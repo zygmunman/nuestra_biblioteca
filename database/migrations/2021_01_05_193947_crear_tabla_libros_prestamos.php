@@ -15,10 +15,10 @@ class CrearTablaLibrosPrestamos extends Migration
     {
         Schema::create('libros_prestamos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('libros_id');
-            $table->foreign('libros_id', 'fk_librosprestamos_libros')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('usuarios_id');
-            $table->foreign('usuarios_id', 'fk_librosprestamos_usuarios')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('libro_id');
+            $table->foreign('libro_id', 'fk_librosprestamos_libros')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id', 'fk_librosprestamos_usuarios')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
             $table->string('prestado_a', 100);
             $table->date('fecha_presatamo');
             $table->date('fecha_devolucion')->nullable();
