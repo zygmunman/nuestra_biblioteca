@@ -31,12 +31,8 @@ class CrearTablaMenusRoles extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('menus_roles');
+        Schema::dropIfExists('menus_roles');
 
-        Schema::drop('menus_roles');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::drop('menu_id');
-        Schema::drop('rol_id');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
     }
 }

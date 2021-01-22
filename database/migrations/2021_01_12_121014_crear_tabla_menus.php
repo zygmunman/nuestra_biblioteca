@@ -33,11 +33,8 @@ class CrearTablaMenus extends Migration
      */
     public function down()
     {
-        //Schema::dropIfExists('menus');
+        Schema::dropIfExists('menus');
 
-        Schema::drop('menus');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::drop('menu_id');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
     }
 }

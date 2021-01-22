@@ -1,12 +1,20 @@
 <?php
 namespace App\Models\Admin;
+//use App\Models\Admin\Rol;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    //protected $table = "menus";
+    protected $table = "menus";
     protected $fillable = ['nombre', 'url', 'icono'];
     protected $guarded = ['id'];
+
+    //Crea una relación muchos a muchos entre Menus y Roles
+    public function roles()
+    {
+
+        return $this->belongsToMany(Rol::class, 'menus_roles');
+    }
 
     public function getHijos($padres, $line)
     {
