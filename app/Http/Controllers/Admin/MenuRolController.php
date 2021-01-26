@@ -38,7 +38,7 @@ class MenuRolController extends Controller
                 return response()->json(['respuesta' => 'El rol se asignó correctamente']);
             } else {
                 $menus->find($request->input('menu_id'))->roles()->detach($request->input('rol_id'));
-                return response()->json(['respuesta' => 'El rol se elimino correctamente']);
+                return response()->json(['respuesta' => 'El rol se eliminó correctamente']);
             }
         } else {
             abort(404);

@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Rol;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+
+
+
 
 class TablaRolesSeeder extends Seeder
 {
