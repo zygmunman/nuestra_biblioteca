@@ -24,7 +24,7 @@
     </div>
 
     <div class="col-lg-1">
-        <span id="mostrar-icono" class="fa fa-fw {{old("icono")}}"></span>
+        <span id="mostrar-icono" class="fa fa-fw {{old('icono')}}"></span>
     </div>
 
 </div>

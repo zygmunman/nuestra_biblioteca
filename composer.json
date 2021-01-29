@@ -39,7 +39,15 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "files":[
+            "app/Helpers/biblioteca.php"
+        ]
+
     },
     "autoload-dev": {
         "psr-4": {
