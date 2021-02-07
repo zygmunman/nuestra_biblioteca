@@ -24,7 +24,7 @@ use App\Http\Controllers\Seguridad\LoginController;
 /**
  * ¡¡¡¡NOTA MUY IMPORTANTE!!!!: HAY QUE IMPORTAR SIEMPRE LA CLASE DEL CONTROLADOR
  */
-
+/** RUTAS DE SEGURIDAD Y LOGIN */
 Route::get('/', [InicioController::class, 'index'])->name('inicio');
 Route::get('seguridad/login', [LoginController::class, 'index'])->name('login');
 Route::post('seguridad/login', [LoginController::class, 'login'])->name('login_post');
@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     /** RUTAS DE PERMISO */
     Route::get('permiso', [PermisoController::class, 'index'])->name('permiso');
     Route::get('permiso/crear', [PermisoController::class, 'crear'])->name('crear_permiso');
+    Route::post('permiso', [PermisoController::class, 'guardar'])->name('guardar_permiso');
+    Route::get('permiso/{id}/editar', [PermisoController::class, 'editar'])->name('editar_permiso');
+    Route::put('permiso/{id}', [PermisoController::class, 'actualizar'])->name('actualizar_permiso');
+    Route::delete('permiso/{id}', [PermisoController::class, 'eliminar'])->name('eliminar_permiso');
 
     /** RUTAS DEL MENÚ */
     Route::get('menu', [MenuController::class, 'index'])->name('menu');
