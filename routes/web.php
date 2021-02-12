@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\MenuRolController;
 use App\Http\Controllers\Admin\PermisoController;
 use App\Http\Controllers\Seguridad\LoginController;
 use App\Http\Controllers\Admin\PermisoRolController;
+use App\Http\Controllers\Admin\UsuarioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,15 @@ Route::get('seguridad/logout', [LoginController::class, 'logout'])->name('logout
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'superadmin']], function () {
     Route::get('', [AdminController::class, 'index']);
+
+    /** RUTAS DE USUARIO */
+    Route::get('usuario', [UsuarioController::class, 'index'])->name('usuario');
+    Route::get('usuario/crear', [UsuarioController::class, 'crear'])->name('crear_usuario');
+    Route::post('usuario', [UsuarioController::class, 'guardar'])->name('guardar_usuario');
+    Route::get('usuario/{id}/editar', [UsuarioController::class, 'editar'])->name('editar_usuario');
+    Route::put('usuario/{id}', [UsuarioController::class, 'actualizar'])->name('actualizar_usuario');
+    Route::delete('usuario/{id}', [UsuarioController::class, 'eliminar'])->name('eliminar_usuario');
+
     /** RUTAS DE PERMISO */
     Route::get('permiso', [PermisoController::class, 'index'])->name('permiso');
     Route::get('permiso/crear', [PermisoController::class, 'crear'])->name('crear_permiso');

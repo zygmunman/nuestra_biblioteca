@@ -14,13 +14,10 @@ class CrearTablaUsuariosRoles extends Migration
     public function up()
     {
         Schema::create('usuarios_roles', function (Blueprint $table) {
-            $table->id();
-            $table->boolean('estado');
             $table->unsignedBigInteger('rol_id');
             $table->foreign('rol_id', 'fk_usuariosroles_roles')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('usuario_id');
             $table->foreign('usuario_id', 'fk_usuariosroles_usuarios')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
         });

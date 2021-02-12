@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Libro;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class LibroController extends Controller
 {
@@ -15,7 +16,9 @@ class LibroController extends Controller
     public function index()
     {
         //dd(session()->all());
-        can('listar-libros');
+        //can('listar-libros');
+        //Cache::put('prueba', 'Esto es un dato en caché');
+        dd(Cache::get('prueba'));
         $datas = Libro::orderBy('id')->get();
         return view('libro.index', compact('datas'));
     }
