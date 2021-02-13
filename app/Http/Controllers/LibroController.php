@@ -15,12 +15,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        //dd(session()->all());
-        //can('listar-libros');
-        //Cache::put('prueba', 'Esto es un dato en caché');
-        dd(Cache::get('prueba'));
-        $datas = Libro::orderBy('id')->get();
-        return view('libro.index', compact('datas'));
+          //dd(session()->all());
+          can('listar-libros');
+          $datas = Libro::orderBy('id')->get();
+          return view('libro.index', compact('datas'));
     }
 
     /**
