@@ -22,7 +22,6 @@ class LoginController extends Controller
         return view('seguridad.index');
     }
 
-
     protected function authenticated(Request $request, $user)
     {
         $roles = $user->roles()->get();
@@ -34,7 +33,6 @@ class LoginController extends Controller
             return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
         }
     }
-
 
     public function username()
     {
