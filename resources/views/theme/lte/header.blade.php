@@ -12,7 +12,6 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
@@ -107,7 +106,6 @@
               <!-- User image -->
               <li class="user-header">
                 <img src="{{asset("assets/$theme/dist/img/user2-160x160.jpg")}}" class="img-circle" alt="User Image">
-
                 <p>
                   Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
@@ -116,24 +114,20 @@
               <!-- Menu Body -->
               <li class="user-body">
                 <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
+                    @if(session()->get("roles") && count(session()->get("roles")) > 1)
+                    <div class="col-xs-6 text-center">
+                        <a href="#" class="cambiar-rol">Cambiar Rol</a>
+                    </div>
+                    @endif
                 </div>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                    <a href="{{route('login')}}" class="btn btn-default btn-flat">Login</a>
+                  <a href="{{route('login')}}" class="btn btn-default btn-flat">Login</a>
                 </div>
                 <div class="pull-right">
-                    <a href="{{route('logout')}}" class="btn btn-default btn-flat">Salir</a>
+                  <a href="{{route('logout')}}" class="btn btn-default btn-flat">Salir</a>
                 </div>
               </li>
             </ul>
