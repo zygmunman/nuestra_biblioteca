@@ -15,7 +15,6 @@ class LibroController extends Controller
      */
     public function index()
     {
-          //dd(session()->all());
           can('listar-libros');
           $datas = Libro::orderBy('id')->get();
           return view('libro.index', compact('datas'));
@@ -40,9 +39,12 @@ class LibroController extends Controller
      */
     public function guardar(Request $request)
     {
-        //dd($request->all());
+
         if ($foto = Libro::setCaratula($request->foto_up))
             $request->request->add(['foto' => $foto]);
+        Libro::create($request->all());
+        return redirect()->route('libro')->with('mensaje', 'El libro se creó correctamente');
+
     }
 
     /**
@@ -51,9 +53,9 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function ver($id)
+    public function ver(Libro $libro)
     {
-        //
+        return view('libro.ver', compact('libro'));
     }
 
     /**

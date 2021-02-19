@@ -86,6 +86,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 Route::get('libro', [LibroController::class, 'index'])->name('libro');
 Route::get('libro/crear', [LibroController::class, 'crear'])->name('crear_libro');
 Route::post('libro', [LibroController::class, 'guardar'])->name('guardar_libro');
+Route::post('libro/{libro}', [LibroController::class,'ver'])->name('ver_libro');
 Route::get('libro/{id}/editar', [LibroController::class, 'editar'])->name('editar_libro');
 Route::put('libro/{id}', [LibroController::class, 'actualizar'])->name('actualizar_libro');
 Route::delete('libro/{id}', [LibroController::class, 'eliminar'])->name('eliminar_libro');
