@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MenuRolController;
 use App\Http\Controllers\Admin\PermisoController;
 use App\Http\Controllers\Admin\UsuarioController;
+use App\Http\Controllers\LibroPrestamoController;
 use App\Http\Controllers\Seguridad\LoginController;
 use App\Http\Controllers\Admin\PermisoRolController;
 
@@ -90,3 +91,6 @@ Route::post('libro/{libro}', [LibroController::class,'ver'])->name('ver_libro');
 Route::get('libro/{id}/editar', [LibroController::class, 'editar'])->name('editar_libro');
 Route::put('libro/{id}', [LibroController::class, 'actualizar'])->name('actualizar_libro');
 Route::delete('libro/{id}', [LibroController::class, 'eliminar'])->name('eliminar_libro');
+
+/** RUTAS LIBRO-PRESTAMO */
+Route::get('libro-prestamo', [LibroPrestamoController::class, 'index'])->name('libro-prestamo');
