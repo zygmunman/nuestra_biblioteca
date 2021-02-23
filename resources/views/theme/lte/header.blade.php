@@ -110,7 +110,7 @@
               <li class="user-header">
                 <img src="{{asset("assets/$theme/dist/img/biblioteca.png")}}" class="img-circle" alt="User Image">
                 <p>
-                    {{session()->get('nombre_usuario', 'Inivitado')}} - {{session()->get('rol_nombre', 'Guest')}}
+                    {{session()->get('nombre_usuario', 'Invitado')}} - {{session()->get('rol_nombre', 'Guest')}}
                       @auth
                           <small>Registrado desde {{Carbon::parse(auth()->user()->created_at)->year }}</small>
                       @endauth
